@@ -1,0 +1,47 @@
+<assembly>
+  <id>dist</id>
+  <formats>
+    <format>tar.gz</format>
+  </formats>
+
+  <dependencySets>
+    <dependencySet>
+      <outputFileNameMapping>${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}
+      </outputFileNameMapping>
+      <useProjectArtifact>false</useProjectArtifact>
+      <unpack>false</unpack>
+      <outputDirectory>lib</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+
+  <files>
+    <file>
+      <source>${project.build.directory}/${project.artifactId}-${project.version}.jar</source>
+      <destName>${project.artifactId}.jar</destName>
+      <outputDirectory>bin</outputDirectory>
+    </file>
+  </files>
+
+  <fileSets>
+    <fileSet>
+      <outputDirectory>conf</outputDirectory>
+      <directory>src/main/conf</directory>
+    </fileSet>
+    <fileSet>
+      <outputDirectory>bin</outputDirectory>
+      <directory>src/main/scripts</directory>
+      <fileMode>0755</fileMode>
+    </fileSet>
+    <fileSet>
+      <outputDirectory>docs</outputDirectory>
+      <directory>docs</directory>
+    </fileSet>
+    <fileSet>
+      <includes>
+        <include>release-history</include>
+        <include>LICENSE</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>
+

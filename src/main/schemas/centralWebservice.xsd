@@ -1,0 +1,571 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+  ~ $Id$
+  ~ $Revision$
+  ~ $Date$
+  ~ $Author$
+  ~
+  ~ The DOMS project.
+  ~ Copyright (C) 2007-2010  The State and University Library
+  ~
+  ~ Licensed to the Apache Software Foundation (ASF) under one
+  ~ or more contributor license agreements.  See the NOTICE file
+  ~ distributed with this work for additional information
+  ~ regarding copyright ownership.  The ASF licenses this file
+  ~ to you under the Apache License, Version 2.0 (the
+  ~ "License"); you may not use this file except in compliance
+  ~ with the License.  You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<xs:schema xmlns:tns="http://central.doms.statsbiblioteket.dk/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+           targetNamespace="http://central.doms.statsbiblioteket.dk/">
+
+    <!--Exceptions-->
+
+    <xs:element name="MethodFailedException" type="xs:string"/>
+    <xs:element name="InvalidResourceException" type="xs:string"/>
+    <xs:element name="InvalidCredentialsException" type="xs:string"/>
+
+    <!--Repo operations-->
+
+    <xs:element name="lockForWriting" type="tns:void"/>
+    <xs:element name="lockForWritingResponse" type="tns:void"/>
+    <xs:element name="unlockForWriting" type="tns:void"/>
+    <xs:element name="unlockForWritingResponse" type="tns:void"/>
+
+
+    <!--Object operations-->
+    <xs:element name="newObject" type="tns:pidAndList"/>
+    <xs:element name="newObjectResponse" type="tns:string"/>
+
+    <xs:element name="getObjectProfile" type="tns:singlePid"/>
+    <xs:element name="getObjectProfileResponse" type="tns:objectProfileWrapper"/>
+
+    <xs:element name="setObjectLabel" type="tns:pidAndName"/>
+    <xs:element name="setObjectLabelResponse" type="tns:void"/>
+
+    <xs:element name="deleteObject" type="tns:PidlistInput"/>
+    <xs:element name="deleteObjectResponse" type="tns:void"/>
+
+    <xs:element name="markPublishedObject" type="tns:PidlistInput"/>
+    <xs:element name="markPublishedObjectResponse" type="tns:void"/>
+
+    <xs:element name="markInProgressObject" type="tns:PidlistInput"/>
+    <xs:element name="markInProgressObjectResponse" type="tns:void"/>
+
+    <!--
+        <xs:element name="listDatastreamsObject" type="tns:singlePid"/>
+        <xs:element name="listDatastreamsObjectResponse" type="tns:Stringlist"/>
+
+        <xs:element name="getTitleObject" type="tns:singlePid"/>
+        <xs:element name="getTitleObjectResponse" type="tns:string"/>
+    -->
+
+
+    <!--Datastream operations-->
+    <!--
+        <xs:element name="newDatastream" type="tns:pidAndDSIDandContents"/>
+        <xs:element name="newDatastreamResponse" type="tns:void"/>
+    -->
+    <!--
+
+        <xs:element name="deleteDatastream" type="tns:pidAndDSID"/>
+        <xs:element name="deleteDatastreamResponse" type="tns:void"/>
+    -->
+
+    <xs:element name="modifyDatastream" type="tns:pid_DSID_Contents"/>
+    <xs:element name="modifyDatastreamResponse" type="tns:void"/>
+
+    <xs:element name="getDatastreamContents" type="tns:pidAndDSID"/>
+    <xs:element name="getDatastreamContentsResponse" type="tns:string"/>
+
+    <!--
+        <xs:element name="getDatastreamProfile" type="tns:pidAndDSID"/>
+        <xs:element name="getDatastreamProfileResponse" type="tns:DatastreamProfile"/>
+    -->
+
+    <!--File methods-->
+    <xs:element name="addFile" type="tns:pid_FileName_Checksum_Contents"/>
+    <xs:element name="addFileResponse" type="tns:void"/>
+
+    <xs:element name="addFileFromPermanentURL" type="tns:pid_filename_checksum_url_format"/>
+    <xs:element name="addFileFromPermanentURLResponse" type="tns:void"/>
+
+
+    <xs:element name="getFileObjectWithURL" type="tns:URL"/>
+    <xs:element name="getFileObjectWithURLResponse" type="tns:singlePid"/>
+    <!--
+
+        <xs:element name="deleteFile" type="tns:singlePid"/>
+        <xs:element name="deleteFileResponse" type="tns:void"/>
+
+        <xs:element name="getFileURL" type="tns:singlePid"/>
+        <xs:element name="getFileURLResponse" type="tns:URL"/>
+    -->
+
+    <!--Relation methods-->
+
+    <xs:element name="addRelation" type="tns:PidAndRelation"/>
+    <xs:element name="addRelationResponse" type="tns:void"/>
+
+
+    <xs:element name="getRelations" type="tns:singlePid"/>
+    <xs:element name="getRelationsResponse" type="tns:ListOfRelations"/>
+
+    <xs:element name="getInverseRelations" type="tns:singlePid"/>
+    <xs:element name="getInverseRelationsResponse" type="tns:ListOfRelations"/>
+
+    <xs:element name="getInverseRelationsWithPredicate" type="tns:pidAndPredicate"/>
+    <xs:element name="getInverseRelationsWithPredicateResponse" type="tns:ListOfRelations"/>
+
+
+    <xs:element name="getNamedRelations" type="tns:pidAndPredicate"/>
+    <xs:element name="getNamedRelationsResponse" type="tns:ListOfRelations"/>
+
+    <xs:element name="deleteRelation" type="tns:PidAndRelation"/>
+    <xs:element name="deleteRelationResponse" type="tns:void"/>
+
+
+    <!--Search methods-->
+    <xs:element name="getViewBundle" type="tns:pidAndViewAngle"/>
+    <xs:element name="getViewBundleResponse" type="tns:viewBundleWrapper"/>
+
+    <xs:element name="getViewBundleFromSpecificTime" type="tns:pidAndViewAngleAndTimestamp"/>
+    <xs:element name="getViewBundleFromSpecificTimeResponse" type="tns:viewBundleWrapper"/>
+
+
+
+    <xs:element name="getIDsModified" type="tns:IdsModified"/>
+    <xs:element name="getIDsModifiedResponse" type="tns:ListRecordDescription"/>
+
+
+    <xs:element name="getLatestModified" type="tns:LatestModified"/>
+    <xs:element name="getLatestModifiedResponse" type="tns:long"/>
+
+    <xs:element name="findObjectFromDCIdentifier" type="tns:string"/>
+    <xs:element name="findObjectFromDCIdentifierResponse" type="tns:Pidlist"/>
+
+    <xs:element name="findObjects" type="tns:SearchQuery"/>
+    <xs:element name="findObjectsResponse" type="tns:SearchResultListWrapper"/>
+
+    <xs:element name="createTempAdminUser" type="tns:newUser"/>
+    <xs:element name="createTempAdminUserResponse" type="tns:UserWrapper"/>
+
+    <xs:element name="getObjectsInCollection" type="tns:getObjectsInCollection"/>
+    <xs:element name="getObjectsInCollectionResponse" type="tns:Pidlist"/>
+
+    <xs:element name="getMethods" type="tns:singlePid"/>
+    <xs:element name="getMethodsResponse" type="tns:MethodList"/>
+
+    <xs:element name="invokeMethod" type="tns:MethodInvocation"/>
+    <xs:element name="invokeMethodResponse" type="tns:string"/>
+
+    <xs:element name="getObjectLinks" type="tns:getObjectLinks"/>
+    <xs:element name="getObjectLinksResponse" type="tns:LinkList"/>
+
+
+
+    <!--Simple types-->
+    <xs:complexType name="singlePid">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PidlistInput">
+        <xs:sequence>
+            <xs:element name="pids" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Pidlist">
+        <xs:sequence>
+            <xs:element name="pids" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="void">
+        <xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Stringlist">
+        <xs:sequence>
+            <xs:element name="string" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="string">
+        <xs:sequence>
+            <xs:element name="string" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pidAndDSID">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="datastream" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pidAndName">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pidAndViewAngle">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="ViewAngle" type="xs:string"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pidAndViewAngleAndTimestamp">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="ViewAngle" type="xs:string"/>
+            <xs:element name="asOfTime" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="pidAndPredicate">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="predicate" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="long">
+        <xs:sequence>
+            <xs:element name="date" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pidAndList">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="oldID" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="pid_DSID_Contents">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="datastream" type="xs:string"/>
+            <xs:element name="contents" type="xs:string"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="URL">
+        <xs:sequence>
+            <xs:element name="URL" type="xs:anyURI"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="pid_FileName_Checksum_Contents">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="filename" type="xs:string"/>
+            <xs:element name="md5sum" type="xs:string"/>
+            <xs:element name="comment" type="xs:string"/>
+            <xs:element xmlns:ns1="http://www.w3.org/2005/05/xmlmime"
+                        name="contents"
+                        ns1:expectedContentTypes="application/octet-stream"
+                        type="xs:base64Binary"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pid_filename_checksum_url_format">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="filename" type="xs:string"/>
+            <xs:element name="md5sum" type="xs:string"/>
+            <xs:element name="permanentURL" type="xs:string"/>
+            <xs:element name="formatURI" type="xs:anyURI"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="relation">
+        <xs:sequence>
+            <xs:element name="subject" type="xs:string"/>
+            <xs:element name="predicate" type="xs:string"/>
+            <xs:element name="object" type="xs:string"/>
+            <xs:element name="literal" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ListOfRelations">
+        <xs:sequence>
+            <xs:element name="relation" type="tns:relation"
+                        minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <!--Complex types-->
+    <xs:complexType name="DatastreamProfile">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="label" type="xs:string"/>
+            <xs:element name="mimeType" type="xs:string"/>
+            <xs:element name="formatUri" type="xs:string"/>
+            <xs:element name="internal" type="xs:boolean"/>
+            <xs:element name="checksum" type="tns:checksum" minOccurs="0"/>
+            <xs:element name="url" type="xs:anyURI" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="checksum">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PidAndRelation">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="relation" type="tns:relation"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="viewBundleWrapper">
+        <xs:sequence>
+            <xs:element name="viewBundle" type="tns:ViewBundle"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ViewBundle">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="contents" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="IdsModified">
+        <xs:sequence>
+            <xs:element name="since" type="xs:long"/>
+            <xs:element name="collectionPid" type="xs:string"/>
+            <xs:element name="viewAngle" type="xs:string"/>
+            <!--<xs:element name="entryContentModel" type="xs:string"/>-->
+            <xs:element name="state" type="xs:string" minOccurs="0" nillable="true"/>
+            <xs:element name="offset" type="xs:int" minOccurs="0" nillable="true"/>
+            <xs:element name="limit" type="xs:int" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ListRecordDescription">
+        <xs:sequence>
+            <xs:element name="RecordDescription" minOccurs="0" maxOccurs="unbounded" type="tns:RecordDescription"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RecordDescription">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="entryContentModelPid" type="xs:string"/>
+            <xs:element name="collectionPid" type="xs:string"/>
+            <xs:element name="date" type="xs:long"/>
+            <xs:element name="state" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LatestModified">
+        <xs:sequence>
+            <xs:element name="collectionPid" type="xs:string"/>
+            <xs:element name="viewAngle" type="xs:string"/>
+            <xs:element name="state" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="SearchQuery">
+        <xs:sequence>
+            <xs:element name="query" type="xs:string"/>
+            <xs:element name="offset" type="xs:int"/>
+            <xs:element name="pageSize" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SearchResultListWrapper">
+        <xs:sequence>
+            <xs:element name="searchResult" type="tns:SearchResultList"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SearchResultList">
+        <xs:sequence>
+            <xs:element name="hitCount" type="xs:long" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="searchResult" type="tns:SearchResult" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="SearchResult">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="source" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="time" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="state" type="xs:string"/>
+            <xs:element name="createdDate" type="xs:long"/>
+            <xs:element name="modifiedDate" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="objectProfileWrapper">
+        <xs:sequence>
+            <xs:element name="objectProfile" type="tns:objectProfile"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="objectProfile">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="state" type="xs:string"/>
+            <xs:element name="createdDate" type="xs:long"/>
+            <xs:element name="modifiedDate" type="xs:long"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="datastreams" type="tns:DatastreamProfile" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="relations" type="tns:relation" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="contentmodels" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <xs:complexType name="newUser">
+        <xs:sequence>
+            <xs:element name="username" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="roles" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="UserWrapper">
+        <xs:sequence>
+            <xs:element name="User" type="tns:User"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="User">
+        <xs:sequence>
+            <xs:element name="username" type="xs:string"/>
+            <xs:element name="password" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getObjectsInCollection">
+        <xs:sequence>
+            <xs:element name="collectionPid" type="xs:string"/>
+            <xs:element name="contentModelPid" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MethodList">
+        <xs:sequence>
+            <xs:sequence>
+                <xs:element type="tns:method" name="method" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="parameters">
+        <xs:sequence>
+            <xs:element type="tns:parameter" name="parameter" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="method">
+        <xs:sequence>
+            <xs:element type="xs:ID" name="name"/>
+            <xs:element name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="dynamic"/>
+                        <xs:enumeration value="static"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="tns:parameters" name="parameters" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="parameter">
+        <xs:sequence>
+            <xs:element type="xs:NCName" name="name"/>
+            <xs:element type="xs:boolean" name="required"/>
+            <xs:element type="xs:boolean" name="repeatable"/>
+            <xs:element name="type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Text"/>
+                        <xs:enumeration value="TextBox"/>
+                        <xs:enumeration value="Integer"/>
+                        <xs:enumeration value="Float"/>
+                        <xs:enumeration value="Datetime"/>
+                        <xs:enumeration value="Date"/>
+                        <xs:enumeration value="Time"/>
+                        <xs:enumeration value="ServerFile"/>
+                        <xs:enumeration value="LocalFile"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element type="xs:string" name="config" minOccurs="0"/>
+            <xs:element type="xs:string" name="default" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MethodInvocation">
+        <xs:sequence>
+            <xs:element type="xs:string" name="cmpid"/>
+            <xs:element type="xs:string" name="methodName"/>
+            <xs:element type="tns:pair" name="parameters" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="pair">
+        <xs:sequence>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="xs:string" name="value"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getObjectLinks">
+        <xs:sequence>
+            <xs:element type="xs:string" name="pid"/>
+            <xs:element name="asOfTime" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="LinkList">
+        <xs:sequence>
+            <xs:element name="Link" type="tns:Link" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Link">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

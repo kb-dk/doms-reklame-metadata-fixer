@@ -1,0 +1,93 @@
+
+
+<namespace:PBCoreDescriptionDocument xmlns:namespace="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+    <namespace:pbcoreAssetType>Biografreklamefilm</namespace:pbcoreAssetType>
+    <namespace:pbcoreIdentifier>
+        <namespace:identifier>1000222</namespace:identifier>
+        <namespace:identifierSource>Statens Mediesamling Biografreklamer 1954-1995</namespace:identifierSource>
+    </namespace:pbcoreIdentifier>
+    <namespace:pbcoreIdentifier>
+        <namespace:identifier>0</namespace:identifier>
+        <namespace:identifierSource>Statens Mediesamling Biografreklamer 1954-1995 censorcardno</namespace:identifierSource>
+    </namespace:pbcoreIdentifier>
+    <namespace:pbcoreIdentifier>
+        <namespace:identifier>REKL0050</namespace:identifier>
+        <namespace:identifierSource>Reklamefilm i Undervisning 1907-1970</namespace:identifierSource>
+    </namespace:pbcoreIdentifier>
+    <namespace:pbcoreTitle>
+        <namespace:title>Example title</namespace:title>
+    </namespace:pbcoreTitle>
+    <namespace:pbcoreTitle>
+        <namespace:title/>
+        <namespace:titleType>alternative</namespace:titleType>
+    </namespace:pbcoreTitle>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>Statens Mediesamling Biografreklamer 1954-1995 tags</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>Statens Mediesamling Biografreklamer 1954-1995 vocabulary</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>Statens Mediesamling Biografreklamer 1954-1995 vocabulary</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example product</namespace:subject>
+        <namespace:subjectAuthorityUsed>Statens Mediesamling Biografreklamer 1954-1995 productadvertised</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>1910-1919</namespace:subject>
+        <namespace:subjectAuthorityUsed>DK5emneord</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>DK5emneord</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>DK5emneord</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>DK5emneord</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>DK5emneord</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>DK5emneord</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreSubject>
+        <namespace:subject>Example subject</namespace:subject>
+        <namespace:subjectAuthorityUsed>DK5emneord</namespace:subjectAuthorityUsed>
+    </namespace:pbcoreSubject>
+    <namespace:pbcoreDescription>
+        <namespace:description>Example description</namespace:description>
+    </namespace:pbcoreDescription>
+    <namespace:pbcoreGenre>
+        <namespace:genre>Advertising</namespace:genre>
+        <namespace:genreAuthorityUsed>EBUContentGenre</namespace:genreAuthorityUsed>
+    </namespace:pbcoreGenre>
+    <namespace:pbcoreCoverage>
+        <namespace:coverage>1910-1919</namespace:coverage>
+        <namespace:coverageType>Temporal</namespace:coverageType>
+    </namespace:pbcoreCoverage>
+    <namespace:pbcoreInstantiation>
+        <namespace:pbcoreFormatID>
+            <namespace:formatIdentifier>1000222</namespace:formatIdentifier>
+            <namespace:formatIdentifierSource>Statens Mediesamling Biografreklamer 1954-1995</namespace:formatIdentifierSource>
+        </namespace:pbcoreFormatID>
+        <namespace:dateIssued>1912</namespace:dateIssued>
+        <namespace:formatLocation>REKL0050_20050927_Example_location.mpg</namespace:formatLocation>
+        <namespace:formatMediaType>Moving Image</namespace:formatMediaType>
+        <namespace:formatDuration>00:00:26</namespace:formatDuration>
+    </namespace:pbcoreInstantiation>
+    <namespace:pbcoreExtension>
+        <namespace:extension>Uspecdato:1912~</namespace:extension>
+        <namespace:extensionAuthorityUsed>EDTF-level2</namespace:extensionAuthorityUsed>
+    </namespace:pbcoreExtension>
+</namespace:PBCoreDescriptionDocument>

@@ -1,0 +1,64 @@
+<PBCoreDescriptionDocument xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+    <pbcoreAssetType>Tv2reklamefilm</pbcoreAssetType>
+    <pbcoreIdentifier>
+        <identifier>tv2rekl200509_0314</identifier>
+        <identifierSource>Statens Mediesamling TV2 reklamer 1988-2005</identifierSource>
+    </pbcoreIdentifier>
+    <pbcoreTitle>
+        <title>Example title</title>
+    </pbcoreTitle>
+    <pbcoreTitle>
+        <title/>
+        <titleType>alternative</titleType>
+    </pbcoreTitle>
+    <pbcoreSubject>
+        <subject>Diverse</subject>
+        <subjectAuthorityUsed>Statens Mediesamling TV2 reklamer 1988-2005 vocabulary top-level</subjectAuthorityUsed>
+    </pbcoreSubject>
+    <pbcoreSubject>
+        <subject>Diverse</subject>
+        <subjectAuthorityUsed>Statens Mediesamling TV2 reklamer 1988-2005 vocabulary bottom-level</subjectAuthorityUsed>
+    </pbcoreSubject>
+    <pbcoreDescription>
+        <description>Example description</description>
+    </pbcoreDescription>
+    <pbcoreGenre>
+        <genre>Advertising</genre>
+        <genreAuthorityUsed>EBUContentGenre</genreAuthorityUsed>
+    </pbcoreGenre>
+    <pbcoreCreator>
+        <creator>TV 2/Reklame</creator>
+        <creatorRole>Client</creatorRole>
+    </pbcoreCreator>
+    <pbcoreCreator>
+        <creator>Example producer</creator>
+        <creatorRole>Producer</creatorRole>
+    </pbcoreCreator>
+    <pbcoreCreator>
+        <creator>Example production unit</creator>
+        <creatorRole>Production Unit</creatorRole>
+    </pbcoreCreator>
+    <pbcorePublisher>
+        <publisher>tv2d</publisher>
+        <publisherRole>channel_name</publisherRole>
+    </pbcorePublisher>
+    <pbcorePublisher>
+        <publisher>TV 2</publisher>
+        <publisherRole>kanalnavn</publisherRole>
+    </pbcorePublisher>
+    <pbcoreInstantiation>
+        <pbcoreFormatID>
+            <formatIdentifier>tv2rekl200509_0314</formatIdentifier>
+            <formatIdentifierSource>Statens Mediesamling TV2 reklamer 1988-2005</formatIdentifierSource>
+        </pbcoreFormatID>
+        <dateIssued>2005-09-17+0200</dateIssued>
+        <formatLocation>example_location.mpg</formatLocation>
+        <formatMediaType>Moving Image</formatMediaType>
+        <formatDuration>00:00:48</formatDuration>
+        <language>und</language>
+    </pbcoreInstantiation>
+    <pbcoreExtension>
+        <extension>locationoforiginalproduction: Ukendt</extension>
+        <extensionAuthorityUsed>Statens Mediesamling TV2 reklamer 1988-2005</extensionAuthorityUsed>
+    </pbcoreExtension>
+</PBCoreDescriptionDocument>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+                     debug="false">
+
+  <appender name="HandleRegistration"
+            class="org.apache.log4j.ConsoleAppender">
+    <param name="Threshold" value="DEBUG"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%-5p [%t] [%d] [%c] %m%n"/>
+    </layout>
+  </appender>
+
+  <logger name="dk.statsbiblioteket.reklamefixer" additivity="false">
+    <level value="DEBUG"/>
+    <appender-ref ref="HandleRegistration"/>
+  </logger>
+
+  <root>
+    <level value="WARN"/>
+    <appender-ref ref="HandleRegistration"/>
+  </root>
+
+
+</log4j:configuration>
